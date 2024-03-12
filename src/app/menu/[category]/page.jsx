@@ -3,10 +3,10 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from './page.module.css';
 
-const {NEXT_PUBLIC_API_URL} = process.env;
+const {NEXTAUTH_URL} = process.env;
 
 const getData = async () => {
-  let res = await fetch(`${NEXT_PUBLIC_API_URL}/api/categories/category`);
+  let res = await fetch(`${NEXTAUTH_URL}/api/categories/category`);
   res = await res.json();
   return res.result;
 }
