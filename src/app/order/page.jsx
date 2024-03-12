@@ -27,12 +27,12 @@ const StyledTableRow = styled(TableRow)(() => ({
 
 function Order() {
 
-  const {HOST} = process.env;
+  const {NEXT_PUBLIC_API_URL} = process.env;
 
   const { data } = useQuery({
     queryKey: 'orders',
     queryFn: async() => {
-      let res = await fetch(`${HOST}/api/orders`);
+      let res = await fetch(`${NEXT_PUBLIC_API_URL}/api/orders`);
       res = await res.json();
       return res.result;
     }

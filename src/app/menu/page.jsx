@@ -1,10 +1,10 @@
 import {Container,Grid, Typography,Button} from '@mui/material';
 import Link from 'next/link';
 
-const {HOST} = process.env;
+const {NEXT_PUBLIC_API_URL} = process.env;
 
 async function getData(){
-  let res = await fetch(`${HOST}/api/categories`);
+  let res = await fetch(`${NEXT_PUBLIC_API_URL}/api/categories`);
   res = await res.json();
   return res.result; 
 }

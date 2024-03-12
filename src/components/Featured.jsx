@@ -2,10 +2,10 @@ import { Box,Button, Grid, Typography, Card, CardContent } from '@mui/material';
 import Image from 'next/image';
 import Swipe from './Swipe';
 
-const {HOST} = process.env;
+const {NEXT_PUBLIC_API_URL} = process.env;
 
 async function getData(){
-    let res = await fetch(`${HOST}/api/featured`);
+    let res = await fetch(`${NEXT_PUBLIC_API_URL}/api/featured`);
     res = await res.json();
     return res.result; 
   }

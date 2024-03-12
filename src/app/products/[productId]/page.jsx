@@ -2,10 +2,10 @@ import {Grid,Typography,Box} from '@mui/material';
 import Image from 'next/image';
 import Price from '@/components/Price';
 
-const {HOST} = process.env;
+const {NEXT_PUBLIC_API_URL} = process.env;
 
 const getData = async (id) => {
-  let res = await fetch(`${HOST}/api/singleProduct/` + id)
+  let res = await fetch(`${NEXT_PUBLIC_API_URL}/api/singleProduct/` + id)
   res = await res.json();
   return res.result;
 }

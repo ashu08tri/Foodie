@@ -1,5 +1,5 @@
 import Slider from "@/components/Slider";
-import Featured from "@/components/featured";
+import Featured from "@/components/Featured";
 import Offer from "@/components/Offer";
 
 function Home() {
