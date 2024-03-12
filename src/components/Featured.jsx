@@ -2,8 +2,10 @@ import { Box,Button, Grid, Typography, Card, CardContent } from '@mui/material';
 import Image from 'next/image';
 import Swipe from './Swipe';
 
+const {HOST} = process.env;
+
 async function getData(){
-    let res = await fetch('http://localhost:3000/api/featured');
+    let res = await fetch(`${HOST}/api/featured`);
     res = await res.json();
     return res.result; 
   }
