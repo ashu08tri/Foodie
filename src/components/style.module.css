@@ -1,0 +1,11 @@
+.count{
+    font-size: xx-large;
+    color: yellow;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.nav_count{
+    font-size: medium;
+    color: #f95959;
+}

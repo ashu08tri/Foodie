@@ -1,0 +1,9 @@
+
+.mainGrid:hover  .box  .text{
+   display: none;
+   
+}
+
+.mainGrid:hover .box .button{
+    display: block;
+}
