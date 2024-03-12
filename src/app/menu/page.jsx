@@ -4,7 +4,7 @@ import Link from 'next/link';
 const {HOST} = process.env;
 
 async function getData(){
-  let res = await fetch(`${HOST}api/categories`);
+  let res = await fetch(`${HOST}/api/categories`);
   res = await res.json();
   return res.result; 
 }

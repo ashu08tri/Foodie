@@ -32,7 +32,7 @@ function Order() {
   const { data } = useQuery({
     queryKey: 'orders',
     queryFn: async() => {
-      let res = await fetch(`${HOST}api/orders`);
+      let res = await fetch(`${HOST}/api/orders`);
       res = await res.json();
       return res.result;
     }

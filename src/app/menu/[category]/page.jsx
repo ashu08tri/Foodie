@@ -6,7 +6,7 @@ import styles from './page.module.css';
 const {HOST} = process.env;
 
 const getData = async () => {
-  let res = await fetch(`${HOST}api/categories/category`);
+  let res = await fetch(`${HOST}/api/categories/category`);
   res = await res.json();
   return res.result;
 }

@@ -5,7 +5,7 @@ import Price from '@/components/Price';
 const {HOST} = process.env;
 
 const getData = async (id) => {
-  let res = await fetch(`${HOST}api/singleProduct/` + id)
+  let res = await fetch(`${HOST}/api/singleProduct/` + id)
   res = await res.json();
   return res.result;
 }
