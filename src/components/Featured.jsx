@@ -1,20 +1,11 @@
 import { Box,Button, Grid, Typography, Card, CardContent } from '@mui/material';
 import Image from 'next/image';
 import Swipe from './Swipe';
-
-const {NEXT_PUBLIC_API_URL} = process.env;
-
-async function getData(){
-    let res = await fetch(`${NEXT_PUBLIC_API_URL}/api/featured`);
-    res = await res.json();
-    return res.result; 
-  }
-
-
+import { getFeaturedData } from '@/utils/fetchData';
 
 async function Featured() {
 
-    const featuredProducts = await getData()
+    const featuredProducts = await getFeaturedData()
 
     return (
         
