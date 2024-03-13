@@ -31,7 +31,7 @@ function Order() {
     queryKey: 'orders',
     queryFn: async() => {
       try{
-        let res = await fetch('http://localhost:3000/api/orders');
+        let res = await fetch('foodie-resturant.vercel.app/api/orders');
         if(res.ok){
           res = await res.json();
           return res.result;
