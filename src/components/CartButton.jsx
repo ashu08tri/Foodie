@@ -28,7 +28,7 @@ function CartButton({ product,price }) {
              date: new Date(),
              userEmail: email
          }
-         let res = await fetch('http://localhost:3000/api/orders', {
+         let res = await fetch('foodie-resturant.vercel.app/api/orders', {
              method: 'POST',
              body: JSON.stringify(cartData),
              cache: 'no-store'
@@ -37,7 +37,7 @@ function CartButton({ product,price }) {
          if(res.success){
              alert('Order Complete! Please check the order page for more details.')
              dispatch(decrement())
-             await fetch('http://localhost:3000/api/cart/delete',{
+             await fetch('foodie-resturant.vercel.app/api/cart/delete',{
                 method: 'DELETE'
              })
              route.push('/order')
