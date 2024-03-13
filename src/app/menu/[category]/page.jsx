@@ -5,7 +5,7 @@ import styles from './page.module.css';
 
 const getData = async () => {
   try {
-    let res = await fetch(`${process.env.NEXTAUTH_URL}/api/categories/category`);
+    let res = await fetch(`${process.env.API_URL}/api/categories/category`);
     if (res.ok) {
       res = await res.json();
       return res.result;
