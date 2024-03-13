@@ -12,7 +12,7 @@ function Cart() {
   const{data,isPending} = useQuery({
     queryKey: ['cart'],
     queryFn: async () => {
-        let res = await fetch('http://localhost:3000/api/cart');
+        let res = await fetch('foodie-resturant.vercel.app/api/cart');
         res = await res.json();
         return res.result;
       }
