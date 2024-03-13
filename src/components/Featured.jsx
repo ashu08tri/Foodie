@@ -2,12 +2,20 @@ import { Box,Button, Grid, Typography, Card, CardContent } from '@mui/material';
 import Image from 'next/image';
 import Swipe from './Swipe';
 
-const {NEXTAUTH_URL} = process.env;
+const {NEXT_PUBLIC_HOST_URL} = process.env;
 
 async function getData(){
-    let res = await fetch(`${NEXTAUTH_URL}/api/featured`);
-    res = await res.json();
-    return res.result; 
+    try{
+        let res = await fetch(`${NEXT_PUBLIC_HOST_URL}/api/featured`);
+        if(res.ok){
+            res = await res.json();
+            return res.result; 
+        }
+    }catch(e){
+        console.log(e);
+        return null
+    }
+   
   }
 
 
@@ -21,7 +29,7 @@ async function Featured() {
         <Grid container sx={{width: '100vw', overflowX: 'scroll', '::-webkit-scrollbar': {display: 'none'}}}>
             <Grid item width={'max'} display={'flex'} position={'relative'}>
             <Swipe />
-                {featuredProducts.map((item,i) =>  
+                {featuredProducts && featuredProducts.map((item,i) =>  
                 <Card key={i} sx={{ ':hover': {background: '#f9ecec', transition: 'all 0.3s'}}}>
                     
                     <Box sx={{width: {xs: '100vw', md: '50vw', ls: '33vw'}, height: {xs: '60vh', md: '75vh'}}} display={'flex'} flexDirection={'column'} alignItems={'center'} justifyContent={'center'} pt={1}>

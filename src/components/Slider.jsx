@@ -43,7 +43,7 @@ export default  function Slider() {
   
   return (
     <Grid container bgcolor={'#f9ecec'} width={'100vw'}>
-      <Grid item xs={12} md={6} display={'flex'} direction={'column'} justifyContent={'center'} alignItems={'center'} sx={{height: {xs: '40vh' ,md: '84vh'}}}>
+      <Grid item xs={12} md={6} display={'flex'} justifyContent={'center'} alignItems={'center'} sx={{height: {xs: '40vh' ,md: '84vh'}, flexDirection: 'column'}}>
         
         <Typography variant="h2" sx={{fontSize: {xs: '38px', md: '60px'}}} color={'#f95959'} textTransform={'uppercase'} textAlign={'center'} p={1}>{data[currentData].title}
         </Typography>

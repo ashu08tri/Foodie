@@ -5,7 +5,7 @@ import CountDown from './CounDown';
 function Offer() {
   return (
     <Grid container width={'100vw'} bgcolor={'black'} sx={{background: 'url(/offerBg.png)', height: {xs: '100vh', md: '70vh'}}}>
-        <Grid item xs={12} md={6} sx={{height: {xs: '50%', md: '100%'}}} textAlign={'center'} display={'flex'} direction={'column'} justifyContent={'center'} alignItems={'center'} color={'white'} p={2}>
+        <Grid item xs={12} md={6} sx={{height: {xs: '50%', md: '100%'}, flexDirection: 'column'}} textAlign={'center'} display={'flex'} justifyContent={'center'} alignItems={'center'} color={'white'} p={2}>
             <Typography variant='h2'>Delious Burgers And French Fries</Typography>
             <Typography>Progressively simplify effective e-tailers and process centric methods
                 of empowerment. Quickly pontificate parallel.

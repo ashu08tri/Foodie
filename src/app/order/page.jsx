@@ -27,14 +27,20 @@ const StyledTableRow = styled(TableRow)(() => ({
 
 function Order() {
 
-  const {NEXT_PUBLIC_API_URL} = process.env;
-
   const { data } = useQuery({
     queryKey: 'orders',
     queryFn: async() => {
-      let res = await fetch(`${NEXT_PUBLIC_API_URL}/api/orders`);
-      res = await res.json();
-      return res.result;
+      try{
+        let res = await fetch('http://localhost:3000/api/orders');
+        if(res.ok){
+          res = await res.json();
+          return res.result;
+        }
+      }
+      catch(e){
+        console.log(e);
+        return null
+      }
     }
   })
   
