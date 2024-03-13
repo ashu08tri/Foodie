@@ -4,7 +4,7 @@ import Swipe from './Swipe';
 
 async function getData(){
     try{
-        let res = await fetch(`${process.env.NEXTAUTH_URL}/api/featured`);
+        let res = await fetch(`${process.env.API_URL}/api/featured`);
         if(res.ok){
             res = await res.json();
             return res.result; 
