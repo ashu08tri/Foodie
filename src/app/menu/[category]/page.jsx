@@ -3,11 +3,9 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from './page.module.css';
 
-const { NEXT_PUBLIC_HOST_URL } = process.env;
-
 const getData = async () => {
   try {
-    let res = await fetch(`${NEXT_PUBLIC_HOST_URL}/api/categories/category`);
+    let res = await fetch(`${process.env.NEXTAUTH_URL}/api/categories/category`);
     if (res.ok) {
       res = await res.json();
       return res.result;
