@@ -4,7 +4,7 @@ import Price from '@/components/Price';
 
 
 const getData = async (id) => {
-  let res = await fetch(`${process.env.NEXTAUTH_URL}/api/singleProduct/` + id)
+  let res = await fetch(`${process.env.API_URL}/api/singleProduct/` + id)
   try{
     res = await res.json();
     return res.result; 
