@@ -34,6 +34,7 @@ function NavBar() {
       <Box sx={{display: {xs: 'none', md: 'flex'}}} justifyContent={'space-around'} gap={3}>
         <Link href='/' style={{color: "#f95959"}}><Typography>HOMEPAGE</Typography></Link>
         <Link href='/menu' style={{color: "#f95959"}}><Typography>MENU</Typography></Link>
+        <Typography><NavCountDown /></Typography>
       </Box>
 
       <Link href='/' style={{color: "#f95959"}}><Typography variant="h4" py={'12px'} fontWeight={'bold'} pl={1}>FOODIE</Typography></Link>
