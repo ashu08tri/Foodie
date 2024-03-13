@@ -10,7 +10,6 @@ function Offer() {
             <Typography>Progressively simplify effective e-tailers and process centric methods
                 of empowerment. Quickly pontificate parallel.
             </Typography>
-            <CountDown style={{fontSize: 'xx-large'}}/>
             <Button variant="contained" sx={{ bgcolor: '#f95959', mt: '12px' , ":hover": {bgcolor:'#f9ecec',color: '#f95959'}}} size='small'>Order Now</Button>
         </Grid>
         <Grid item xs={12} md={6} position='relative' sx={{height: {xs: '50%', md: '100%'}}}>
