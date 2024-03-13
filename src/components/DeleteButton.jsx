@@ -8,7 +8,7 @@ function DeleteButton({id}) {
   const router = useRouter();
 
   const deleteHandler = async (id) => {
-    let del = await fetch('http://localhost:3000/api/cart/' + id,{
+    let del = await fetch('foodie-resturant.vercel.app/api/cart/' + id,{
         method: 'DELETE'
     });
     del = await del.json()
