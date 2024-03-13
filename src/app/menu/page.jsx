@@ -4,7 +4,7 @@ import Link from 'next/link';
 async function getData(){
   
   try{
-    let res = await fetch(`${process.env.NEXTAUTH_URL}/api/categories`);
+    let res = await fetch(`${process.env.API_URL}/api/categories`);
     if(res.ok){
     res = await res.json();
     return res.result; 
