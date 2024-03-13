@@ -38,7 +38,7 @@ function Price({ price, id, options,title,img }) {
       quantity,      
       options: options[selected].title
     }
-        let res = await fetch('http://localhost:3000/api/cart',{
+        let res = await fetch('https://foodie-resturant.vercel.app/api/cart',{
         method: 'Post',
         body: JSON.stringify(cartData)
       })
