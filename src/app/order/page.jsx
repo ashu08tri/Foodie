@@ -51,7 +51,6 @@ function Order() {
       {data ? <Table>
         <TableHead>
           <TableRow>
-            <StyledTableCell>OrderId</StyledTableCell>
             <StyledTableCell>Date</StyledTableCell>
             <StyledTableCell>Price</StyledTableCell>
             <StyledTableCell>Products</StyledTableCell>
@@ -61,8 +60,7 @@ function Order() {
 
         {data.map(item =>  <TableBody key={item._id}>
          <StyledTableRow>
-            <StyledTableCell>{item._id}</StyledTableCell>
-            <StyledTableCell>{item.date}</StyledTableCell>
+            <StyledTableCell>{item.date.split('T')[0]}</StyledTableCell>
             <StyledTableCell>{item.price}</StyledTableCell>
             <StyledTableCell>{item.product + " "}</StyledTableCell>
             <StyledTableCell>{item.status}</StyledTableCell>
