@@ -1,5 +1,6 @@
 import { Box,Button, Grid, Typography, Card, CardContent } from '@mui/material';
 import Image from 'next/image';
+import Link from 'next/link';
 import Swipe from './Swipe';
 
 async function getData(){
@@ -44,7 +45,7 @@ async function Featured() {
                         <Typography variant='span' py={1} fontSize={'25px'} fontWeight={'bold'} display={'block'}>
                         &#8377;{item.price}
                         </Typography>
-                        <Button variant="contained" sx={{ bgcolor: '#f95959', margin: '10px 0' ,":hover": {bgcolor:'#f9ecec',color: '#f95959'}}} size='small'>ORDER NOW</Button>
+                       <Link href={`/featuredProduct/${item._id}`}><Button variant="contained" sx={{ bgcolor: '#f95959', margin: '10px 0' ,":hover": {bgcolor:'#f9ecec',color: '#f95959'}}} size='small'>ORDER NOW</Button></Link>
                     </CardContent>
                     </Box>
                 </Card>)}
