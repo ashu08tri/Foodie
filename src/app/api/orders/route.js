@@ -1,30 +1,21 @@
 import mongoose from "mongoose";
 import { NextResponse } from "next/server";
 import { connectProduct } from "@/libs/db";
-import { User,Order } from "@/libs/modal/user";
+import { Order } from "@/libs/modal/user";
 import { getAuthSession } from "@/utils/auth";
-
-
 
 
 export async function GET(){
     try {
         const session  = await getAuthSession();
         await mongoose.connect(connectProduct)
-        const user = await User.find();
-        const isAdmin = user.map(item => item.isAdmin)
-        const userEmail = user.map(item => item.email)
-        if(isAdmin && session.user.email == userEmail){
-            const order = await Order.find();
+        if(session){
+            const order = await Order.find({userEmail: session.user.email});
             return NextResponse.json({result: order, success: true})
         }
-        
-        const order = await Order.find({userEmail: user.email});
-        return NextResponse.json({result: order, success: true})
     } catch (error) {
         return NextResponse.json({result: false, success: false})
     }
-
 }
 
 export async function POST(request){
