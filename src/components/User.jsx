@@ -9,8 +9,8 @@ function User() {
   const { status } = useSession();
 
    const logOut = () => {
-    signOut();
     redirect('/')
+    signOut();
   }
 
   return (
