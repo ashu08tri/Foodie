@@ -1,6 +1,8 @@
 "use client"
 import { TableContainer, Table, TableBody, TableHead, TableCell, TableRow, Paper, tableCellClasses,Typography } from '@mui/material';
 import { useQuery } from '@tanstack/react-query';
+import { useSession } from 'next-auth/react';
+import { redirect } from 'next/navigation';
 import { styled } from '@mui/material/styles';
 
 const StyledTableCell = styled(TableCell)(() => ({
@@ -27,6 +29,12 @@ const StyledTableRow = styled(TableRow)(() => ({
 
 function Order() {
 
+  const {status} = useSession();
+  
+   if(status !== 'authenticated'){
+   redirect('/login')
+   }
+  
   const { data } = useQuery({
     queryKey: 'orders',
     queryFn: async() => {
