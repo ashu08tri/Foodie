@@ -36,7 +36,7 @@ function Order() {
    redirect('/login')
    }
   
-  const { data } = useQuery({
+  const { data,isPending } = useQuery({
     queryKey: 'orders',
     queryFn: async() => {
       try{
@@ -53,7 +53,7 @@ function Order() {
     }
   })
 
-    if(status === 'loading'){
+    if(isPending){
     return <Loading />
   }
   
@@ -61,7 +61,7 @@ function Order() {
   return (
     
     <TableContainer component={Paper} sx={{ p: '16px', height: '84vh', overflowY: 'scroll', '::-webkit-scrollbar': { display: 'hidden' } }}>
-      <Table>
+     {data ?  <Table>
         <TableHead>
           <TableRow>
             <StyledTableCell>Date</StyledTableCell>
@@ -71,7 +71,7 @@ function Order() {
           </TableRow>
         </TableHead>
 
-        {data && data.map(item =>  <TableBody key={item._id}>
+        {data.map(item =>  <TableBody key={item._id}>
          <StyledTableRow>
             <StyledTableCell>{item.date.split('T')[0]}</StyledTableCell>
             <StyledTableCell>{item.price}</StyledTableCell>
@@ -79,7 +79,7 @@ function Order() {
             <StyledTableCell>{item.status}</StyledTableCell>
           </StyledTableRow>
         </TableBody>)}
-      </Table> 
+      </Table>  : <Typography variant='h2' align='center' color='#f95959'>You've not ordered anything yet.</Typography>}
     </TableContainer>
   )
 }
