@@ -41,8 +41,8 @@ function Modal(props) {
   const {status} = useSession();
 
   const logOut = () => {
-    signOut();
     redirect('/')
+    signOut();
   }
 
   const listItems = [
