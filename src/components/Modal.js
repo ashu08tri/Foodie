@@ -40,10 +40,6 @@ function Modal(props) {
 
   const {status} = useSession();
 
-  const logOut = () => {
-    redirect('/')
-    signOut();
-  }
 
   const listItems = [
     {
@@ -89,7 +85,7 @@ function Modal(props) {
           </motion.li>
 
     <motion.li style={{ padding: '10px 0', fontWeight: 'bold', fontSize: '1.6rem' }} whileTap={{scale: 1.2}} onClick={props.stateHandler} variants={listItem}>
-          <span onClick={logOut} style={{color: "white", cursor: 'pointer'}}>Logout</span></motion.li></>:
+          <span onClick={() => signOut()} style={{color: "white", cursor: 'pointer'}}>Logout</span></motion.li></>:
           
           <motion.li style={{ padding: '10px 0', fontWeight: 'bold', fontSize: '1.6rem' }} whileTap={{scale: 1.2}} onClick={props.stateHandler} variants={listItem}>
             <Link href='/login' style={{ color: 'white' }}>Login</Link>
