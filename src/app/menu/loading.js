@@ -1,10 +1,13 @@
 "use client"
-import ClockLoader from "react-spinners/ClockLoader";
+import { BeatLoader } from "react-spinners";
 
 const override= {
-    display: "block",
-    margin: "20px auto",
-    borderColor: 'red',
+  display: "flex",
+  justifyContent: 'center',
+  alignItems: 'center',
+  height: '90vh',
+  margin: "20px auto",
+  borderColor: "#f95959"
   };
 
 function loading() {
@@ -13,11 +16,11 @@ function loading() {
     <div className="sweet-loading">
      
 
-      <ClockLoader
-        color={'red'}
+      <BeatLoader
+        color={"#f95959"}
         loading={loading}
         cssOverride={override}
-        size={150}
+        size={15}
         aria-label="Loading Spinner"
         data-testid="loader"
       />
