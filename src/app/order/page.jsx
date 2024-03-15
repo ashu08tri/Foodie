@@ -73,7 +73,7 @@ function Order() {
             <StyledTableCell>{item.status}</StyledTableCell>
           </StyledTableRow>
         </TableBody>)}
-      </Table>  : <Typography variant='h2' align='center' color='#f95959'>You've not ordered anything yet.</Typography>}
+      </Table>  : <Typography variant='h2' align='center' color='#f95959'>You&apos;ve not ordered anything yet.</Typography>}
     </TableContainer>
   )
 }
