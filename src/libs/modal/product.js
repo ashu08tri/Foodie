@@ -16,6 +16,7 @@ const featuredProductSchema = new mongoose.Schema({
     price: Number,
     img: String,
     desc: String,
+    options: [{type : Object}]
 })
 
 export const FeaturedProduct = mongoose.models.featuredproducts || mongoose.model('featuredproducts', featuredProductSchema)
