@@ -3,6 +3,7 @@ import { Grid, Box,Button, Card, CardContent, Typography } from '@mui/material';
 import { signIn, useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
+import Loading from './Loading';
 import Link from 'next/link';
 
 function Login() {
@@ -10,7 +11,7 @@ function Login() {
   const route = useRouter();
 
   if(status === 'loading'){
-    return <p>Loading...</p>
+    return <Loading />
   }
   if(status === 'authenticated'){
     route.push('/')
