@@ -35,10 +35,6 @@ function Order() {
    if(status !== 'authenticated'){
    redirect('/login')
    }
-
-  if(status === 'loading'){
-    return <Loading />
-  }
   
   const { data } = useQuery({
     queryKey: 'orders',
@@ -56,6 +52,10 @@ function Order() {
       }
     }
   })
+
+    if(status === 'loading'){
+    return <Loading />
+  }
   
 
   return (
