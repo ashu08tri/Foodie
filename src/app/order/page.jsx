@@ -4,7 +4,6 @@ import { useQuery } from '@tanstack/react-query';
 import { useSession } from 'next-auth/react';
 import { redirect } from 'next/navigation';
 import { styled } from '@mui/material/styles';
-import Loading from './Loading';
 
 const StyledTableCell = styled(TableCell)(() => ({
   [`&.${tableCellClasses.head}`]: {
@@ -36,7 +35,7 @@ function Order() {
    redirect('/login')
    }
   
-  const { data,isPending } = useQuery({
+  const { data } = useQuery({
     queryKey: 'orders',
     queryFn: async() => {
       try{
@@ -52,11 +51,6 @@ function Order() {
       }
     }
   })
-
-    if(isPending){
-    return <Loading />
-  }
-  
 
   return (
     
