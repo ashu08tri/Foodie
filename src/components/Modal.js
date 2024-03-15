@@ -3,7 +3,8 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useSelector } from 'react-redux';
-import { signOut, useSession } from "next-auth/react"
+import { signOut, useSession } from "next-auth/react";
+import { redirect } from 'next/navigation';
 
 const boxStyle = {
   position: "absolute",
@@ -38,6 +39,11 @@ function Modal(props) {
   let cartCount = useSelector(state => state.counter.value);
 
   const {status} = useSession();
+
+  const logOut = () => {
+    signOut();
+    redirect('/')
+  }
 
   const listItems = [
     {
@@ -83,7 +89,7 @@ function Modal(props) {
           </motion.li>
 
     <motion.li style={{ padding: '10px 0', fontWeight: 'bold', fontSize: '1.6rem' }} whileTap={{scale: 1.2}} onClick={props.stateHandler} variants={listItem}>
-          <span onClick={() => signOut()} style={{color: "white", cursor: 'pointer'}}>Logout</span></motion.li></>:
+          <span onClick={logOut} style={{color: "white", cursor: 'pointer'}}>Logout</span></motion.li></>:
           
           <motion.li style={{ padding: '10px 0', fontWeight: 'bold', fontSize: '1.6rem' }} whileTap={{scale: 1.2}} onClick={props.stateHandler} variants={listItem}>
             <Link href='/login' style={{ color: 'white' }}>Login</Link>
