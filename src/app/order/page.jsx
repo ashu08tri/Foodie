@@ -4,6 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 import { useSession } from 'next-auth/react';
 import { redirect } from 'next/navigation';
 import { styled } from '@mui/material/styles';
+import Loading from '../login/Loading';
 
 const StyledTableCell = styled(TableCell)(() => ({
   [`&.${tableCellClasses.head}`]: {
@@ -34,6 +35,10 @@ function Order() {
    if(status !== 'authenticated'){
    redirect('/login')
    }
+
+  if(status === 'loading'){
+    return <Loading />
+  }
   
   const { data } = useQuery({
     queryKey: 'orders',
@@ -56,7 +61,7 @@ function Order() {
   return (
     
     <TableContainer component={Paper} sx={{ p: '16px', height: '84vh', overflowY: 'scroll', '::-webkit-scrollbar': { display: 'hidden' } }}>
-      {data ? <Table>
+      <Table>
         <TableHead>
           <TableRow>
             <StyledTableCell>Date</StyledTableCell>
@@ -66,7 +71,7 @@ function Order() {
           </TableRow>
         </TableHead>
 
-        {data.map(item =>  <TableBody key={item._id}>
+        {data && data.map(item =>  <TableBody key={item._id}>
          <StyledTableRow>
             <StyledTableCell>{item.date.split('T')[0]}</StyledTableCell>
             <StyledTableCell>{item.price}</StyledTableCell>
@@ -74,9 +79,9 @@ function Order() {
             <StyledTableCell>{item.status}</StyledTableCell>
           </StyledTableRow>
         </TableBody>)}
-      </Table> : <Typography variant='h2' align='center' color='#f95959'>Login to see order details.</Typography>}
+      </Table> 
     </TableContainer>
   )
 }
 
-export default Order
+export default Order;
