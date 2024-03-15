@@ -4,7 +4,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useSelector } from 'react-redux';
 import { signOut, useSession } from "next-auth/react";
-import { redirect } from 'next/navigation';
 
 const boxStyle = {
   position: "absolute",
