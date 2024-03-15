@@ -4,6 +4,8 @@ import { useQuery } from '@tanstack/react-query';
 import { useSession } from 'next-auth/react';
 import { redirect } from 'next/navigation';
 import { styled } from '@mui/material/styles';
+import Loading from './Loading';
+
 
 const StyledTableCell = styled(TableCell)(() => ({
   [`&.${tableCellClasses.head}`]: {
@@ -73,7 +75,7 @@ function Order() {
             <StyledTableCell>{item.status}</StyledTableCell>
           </StyledTableRow>
         </TableBody>)}
-      </Table>  : <Typography variant='h2' align='center' color='#f95959'>You&apos;ve not ordered anything yet.</Typography>}
+      </Table>  : <Loading />}
     </TableContainer>
   )
 }
