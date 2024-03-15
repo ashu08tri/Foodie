@@ -4,11 +4,20 @@ import { Box, Button, IconButton, Typography } from '@mui/material';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 import{useDispatch} from 'react-redux';
 import { increment } from "@/utils/cartValue";
 
 
 function Price({ price, id, options,title,img }) {
+
+  const {status} = useSession();
+
+  let session = false; 
+
+  if(status === 'authenticated'){
+    session = true;
+  }
 
   const dispatch = useDispatch();
   const route = useRouter()
@@ -30,6 +39,8 @@ function Price({ price, id, options,title,img }) {
 
 
   const cartHandler = async () => {
+
+    if(session){
     let cartData = {
       id,
       title,
@@ -48,7 +59,9 @@ function Price({ price, id, options,title,img }) {
         route.push('/cart');
         route.refresh();
       }
-     
+    }else{
+      alert('Login to add items in cart!')
+    }
   }
 
   return (
