@@ -4,7 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 import { useSession } from 'next-auth/react';
 import { redirect } from 'next/navigation';
 import { styled } from '@mui/material/styles';
-import Loading from '../login/Loading';
+import Loading from './Loading';
 
 const StyledTableCell = styled(TableCell)(() => ({
   [`&.${tableCellClasses.head}`]: {
